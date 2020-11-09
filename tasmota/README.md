@@ -11,7 +11,8 @@ browse to the address '192.168.4.1' where the device Tasmota configuration page 
 ## Installing Tasmota via tuya-convert
 
 This is the software you can use to install the Tasmota firmware over the wifi connection. It relies
-upon a vulnerability in the common 'Tuya' smart device firmware commonly pre-installed.
+upon a vulnerability in the common 'Tuya' smart device firmware commonly
+pre-installed.
 
 This is likely to be most straightforward if you use a Raspberry Pi (e.g. 3B+) as the tuya-convert
 'host'. Note that tuya-convert significantly re-configures the WiFi interface of the Pi (to provide an
@@ -22,6 +23,14 @@ These instructions will refer to three devices:
 1. **FLASH PI** : the Raspberry Pi you are using to run the tuya-convert software.
 2. **SMART DEVICE** : the smartplug or whatever you are installing Tasmota onto.
 3. **PHONE** : your smartphone or other Wifi enabled device you can use to connect to a wifi network and browse the web.
+
+**NOTE: Newer Tuya firmware is at present not flashable** with tuya-convert -
+[there is currently no remedy](https://github.com/ct-Open-Source/tuya-convert/wiki/Collaboration-document-for-PSK-Identity-02).
+Affected devices can still be reflashed via the programming pins by taking them apart, but many are
+glued shut.
+
+<details>
+<summary>Unfold for Tasmota reflashing process</summary>
 
 On the **FLASH PI**:
 
@@ -109,6 +118,9 @@ is work keeping `./start_flash.sh` running because it will maintain the existing
 to bootstrap the network into life via your phone.
 
 The smart device will reboot into the Tasmota firmware, and come up as a WiFi access point on a new SSID 'tasmota-1234' (or other number).
+</details>
+
+## Connecting Tasmota to the target WiFi network
 
 On your **PHONE**:
 
